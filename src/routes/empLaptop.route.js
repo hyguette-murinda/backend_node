@@ -1,5 +1,5 @@
 import express from 'express'
-import empLaptopController from '../controllers/empLaptop.controller'
+import empLaptopController from '../controllers/empLaptop.controller.js'
 
 
 const empLaptopRouter = express.Router()

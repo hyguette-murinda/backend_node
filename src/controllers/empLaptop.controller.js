@@ -1,6 +1,6 @@
-import EmpLaptop from "../models/empLaptop";
-import { ApiResponse } from "../responses/api.response";
-import { CreateEmpLaptopSchema } from "../validations/app.validation";
+import EmpLaptop from "../models/empLaptop.js";
+import { ApiResponse } from "../responses/api.response.js";
+import { CreateEmpLaptopSchema } from "../validations/app.validation.js";
 
 const registerEmpLaptop = async (req, res) =>{
     try{
@@ -21,11 +21,14 @@ const registerEmpLaptop = async (req, res) =>{
             serialnumber
         })
         await empLaptop.save()
+        console.log("laptop registered")
+        return res.status(201).json(new ApiResponse(true, "laptop registered successfully", empLaptop))
+
     }catch(error){
         console.log(error.message)
     }
 }
 const empLaptopController = {
-    registerEmpLaptop,
+    registerEmpLaptop
 }
 export default empLaptopController

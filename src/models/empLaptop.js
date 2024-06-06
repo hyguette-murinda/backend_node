@@ -1,4 +1,3 @@
-import { required } from "joi";
 import mongoose, { Schema } from "mongoose";
 
 const empLaptopSchema = new Schema({
@@ -20,7 +19,7 @@ const empLaptopSchema = new Schema({
         maxlength: 50
     },
     nationalid: {
-        type: int,
+        type: String,
         required: true,
         minlength: 16,
         maxlength:16
@@ -59,7 +58,7 @@ const empLaptopSchema = new Schema({
     },
     serialnumber: {
         type: String,
-        required
+        required: true
     },
     
     createdAt: {
