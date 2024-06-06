@@ -9,6 +9,25 @@ const CreateUserSchema = Joi.object({
     password: Joi.string().required().max(16).min(4),
 })
 
+const CreateEmpLaptopSchema = Joi.object({
+    laptopid: Joi.string().required(),
+    firstname: Joi.string().required().min(4).max(50),
+    lastname: Joi.string().required().min(4).max(50),
+    nationalid: Joi.string().required().min(16).max(16),
+    mobile: Joi.string().max(15).min(10),
+    email: Joi.string().email().required().max(40).min(4),
+    department: Joi.string().required().min(4).max(50),
+    position: Joi.string().required().min(2).max(50),
+    laptopmanu: Joi.string().required().min(4).max(50),
+    model: Joi.string().required().min(4).max(50),
+    serialnumber: Joi.string().required().min(4).max(50),
+
+
+
+
+
+})
+
 const UpdateUserSchema = Joi.object({
     fullname: Joi.string().required().min(4).max(50),
     email: Joi.string().email().required().max(40).min(4),
@@ -57,4 +76,4 @@ const UpdateProductSchema = Joi.object({
 })
 
 
-export { CreateUserSchema, UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema, DeleteUserSchema, CreateProductSchema, UpdateProductSchema }
+export { CreateUserSchema, CreateEmpLaptopSchema ,UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema, DeleteUserSchema, CreateProductSchema, UpdateProductSchema }
