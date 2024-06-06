@@ -28,7 +28,21 @@ const registerEmpLaptop = async (req, res) =>{
         console.log(error.message)
     }
 }
+
+ const getAllLaps = async (req, res) =>{
+    try{
+        const laps = await EmpLaptop.find()
+        laps.forEach(async (lap) =>{
+            console.log("laps")
+        })
+        console.log(laps)
+        return res.status(200).json(new ApiResponse(true, "users got", laps))
+    } catch(error){
+        console.log(error.message);
+    }
+ }
 const empLaptopController = {
-    registerEmpLaptop
+    registerEmpLaptop,
+    getAllLaps
 }
 export default empLaptopController
