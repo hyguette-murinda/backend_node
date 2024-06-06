@@ -18,6 +18,7 @@ const login = async (req, res) => {
         const { error } = LoginUserSchema.validate(req.body)
         if (error) return res.status(400).json(new ApiResponse(false, error.details[0].message, null))
         const { email, password } = req.body
+        console.log("Here in auth")
         const user = await User.findOne({ email })
         if (!user) return res.status(404).json(new ApiResponse(false, "Incorrect credentials", null))
         const isPasswordCorrect = await bcrypt.compare(password, user.password)
