@@ -6,5 +6,6 @@ const empLaptopRouter = express.Router()
 
 
 empLaptopRouter.post('/new', empLaptopController.registerEmpLaptop)
+empLaptopRouter.get('/get', empLaptopController.getAllLaps)
 
 export default empLaptopRouter
