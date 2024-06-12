@@ -5,7 +5,7 @@ const empLaptopRouter = express.Router()
 
 /**
  * @swagger
- * /laptop/new:
+ * /ai/v1/laptop/new:
  *   post:
  *     summary: Registers a new employee laptop
  *     tags: [Laptop]
@@ -16,12 +16,26 @@ const empLaptopRouter = express.Router()
  *           schema:
  *             type: object
  *             properties:
- *               name:
+ *               firstname:
+ *                 type: string
+ *               lastname:
+ *                 type: string
+ *               nationalid:
+ *                 type: string
+ *               mobile:
+ *                 type: string
+ *               email:
+ *                 type: string
+ *               department:
+ *                 type: string
+ *               position:
+ *                 type: string
+ *               laptopmanu:
  *                 type: string
  *               model:
  *                 type: string
- *               employeeId:
- *                 type: integer
+ *               serialnumber:
+ *                 type: string
  *     responses:
  *       201:
  *         description: Laptop registered successfully
@@ -32,7 +46,7 @@ empLaptopRouter.post('/new', empLaptopController.registerEmpLaptop)
 
 /**
  * @swagger
- * /laptop/all:
+ * /api/v1/laptop/all:
  *   get:
  *     summary: Retrieves all employee laptops
  *     tags: [Laptop]

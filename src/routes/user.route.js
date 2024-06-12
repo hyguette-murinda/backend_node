@@ -6,7 +6,7 @@ const userRouter = express.Router()
 
 /**
  * @swagger
- * /user/register:
+ * /api/v1/user/register:
  *   post:
  *     summary: Registers a new user
  *     tags: [User]
@@ -17,7 +17,9 @@ const userRouter = express.Router()
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               fullname:
+ *                 type: string
+ *               email:
  *                 type: string
  *               password:
  *                 type: string
@@ -29,7 +31,7 @@ userRouter.post('/register', userController.registerUser)
 
 /**
  * @swagger
- * /user/update:
+ * /api/v1/user/update:
  *   put:
  *     summary: Updates user information
  *     tags: [User]
@@ -56,7 +58,7 @@ userRouter.put('/update', isLoggedIn, userController.updateUser)
 
 /**
  * @swagger
- * /user/update-status:
+ * /api/v1/user/update-status:
  *   put:
  *     summary: Updates user profile status
  *     tags: [User]
@@ -81,7 +83,7 @@ userRouter.put('/update-status', isLoggedIn, userController.updateProfileStatus)
 
 /**
  * @swagger
- * /user/all:
+ * /api/v1/user/all:
  *   get:
  *     summary: Retrieves all users
  *     tags: [User]
@@ -106,7 +108,7 @@ userRouter.get('/all', isLoggedIn, userController.getAllUsers)
 
 /**
  * @swagger
- * /user/{id}:
+ * /api/v1/user/{id}:
  *   get:
  *     summary: Retrieves a user by ID
  *     tags: [User]
@@ -128,7 +130,7 @@ userRouter.get('/:id', isLoggedIn, userController.getUserById)
 
 /**
  * @swagger
- * /user/delete/{id}:
+ * /api/v1/user/delete/{id}:
  *   delete:
  *     summary: Deletes a user by admin
  *     tags: [User]
@@ -150,7 +152,7 @@ userRouter.delete('/delete/:id', isLoggedIn, isAdmin, userController.deleteUserB
 
 /**
  * @swagger
- * /user/delete:
+ * /api/v1/user/delete:
  *   post:
  *     summary: Deletes the logged-in user
  *     tags: [User]
@@ -175,7 +177,7 @@ userRouter.post('/delete', isLoggedIn, userController.deleteUser)
 
 /**
  * @swagger
- * /user/report/{id}:
+ * /api/v1/user/report/{id}:
  *   get:
  *     summary: Retrieves a user report by ID
  *     tags: [User]
@@ -197,7 +199,7 @@ userRouter.get("/report/:id", isLoggedIn, userController.getUserReport)
 
 /**
  * @swagger
- * /user/search/{query}:
+ * /api/v1/user/search/{query}:
  *   get:
  *     summary: Searches users by query
  *     tags: [User]
@@ -217,7 +219,7 @@ userRouter.get("/search/:query", isLoggedIn, userController.searchUser)
 
 /**
  * @swagger
- * /user/update-avatar:
+ * /api/v1/user/update-avatar:
  *   post:
  *     summary: Updates the user's avatar
  *     tags: [User]
