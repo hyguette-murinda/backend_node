@@ -5,7 +5,7 @@ const empLaptopRouter = express.Router()
 
 /**
  * @swagger
- * /ai/v1/laptop/new:
+ * /api/v1/laptop/new:
  *   post:
  *     summary: Registers a new employee laptop
  *     tags: [Laptop]

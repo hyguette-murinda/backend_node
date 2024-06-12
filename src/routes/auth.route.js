@@ -17,7 +17,7 @@ const authRouter = express.Router()
  *           schema:
  *             type: object
  *             properties:
- *               username:
+ *               email:
  *                 type: string
  *               password:
  *                 type: string
