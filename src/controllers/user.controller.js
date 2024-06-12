@@ -16,12 +16,11 @@ const registerUser = async (req, res) => {
     try {
         const { error } = CreateUserSchema.validate(req.body)
         if (error) return res.status(400).json(new ApiResponse(false, error.details[0].message, null))
-        const { fullname, email, mobile, password } = req.body
+        const { fullname, email, password } = req.body
         const hashedPassword = await bcrypt.hash(password, 8)
         const user = new User({
             fullname,
             email,
-            mobile,
             password: hashedPassword
         })
         await user.save()

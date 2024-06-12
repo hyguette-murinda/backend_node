@@ -4,13 +4,12 @@ import Joi from "joi";
 const CreateUserSchema = Joi.object({
     fullname: Joi.string().required().min(4).max(50),
     email: Joi.string().email().required().max(40).min(4),
-    mobile: Joi.string().max(15).min(10),
-    gender: Joi.string(),
+    // mobile: Joi.string().max(15).min(10),
+    // gender: Joi.string(),
     password: Joi.string().required().max(16).min(4),
 })
 
 const CreateEmpLaptopSchema = Joi.object({
-    laptopid: Joi.string().required(),
     firstname: Joi.string().required().min(4).max(50),
     lastname: Joi.string().required().min(4).max(50),
     nationalid: Joi.string().required().min(16).max(16),

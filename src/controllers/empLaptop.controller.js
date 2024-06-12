@@ -6,11 +6,10 @@ const registerEmpLaptop = async (req, res) =>{
     try{
         const {error} = CreateEmpLaptopSchema.validate(req.body)
         if (error) return res.status(400).json(new ApiResponse(false, error.details[0].message, null))
-        const {laptopid, firstname, lastname, nationalid, mobile, email, department, position, laptopmanu, model, serialnumber} = req.body
+        const {firstname, lastname, nationalid, mobile, email, department, position, laptopmanu, model, serialnumber} = req.body
         const empLaptop = new EmpLaptop({
-            laptopid, 
             firstname, 
-            lastname, 
+            lastname,   
             nationalid, 
             mobile, 
             email, 

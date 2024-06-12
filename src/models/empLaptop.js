@@ -1,10 +1,6 @@
 import mongoose, { Schema } from "mongoose";
 
 const empLaptopSchema = new Schema({
-    laptopid: {
-        type: String,
-        required: true,
-    },
     
     firstname: {
         type: String,
