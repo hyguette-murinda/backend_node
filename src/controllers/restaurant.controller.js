@@ -1,5 +1,6 @@
 import Restaurant from "../models/restaurant.js";
 import { CreateRestaurantSchema } from "../validations/app.validation.js";
+import Menu from "../models/menu.js";
 
 const registerRestaurant = async (req, res) => {
   try {
@@ -39,8 +40,35 @@ const getAllRestos = async (req, res) =>{
     }
 }
 
+const getAllMenus = async (req, res) => {
+    try {
+        const { restaurantId } = req.params;
+
+        const menus = await Menu.find({ restaurant: restaurantId }).populate('restaurant');
+        if (!menus || menus.length === 0) {
+            return res.status(404).json({
+                status: "error",
+                message: "No menus found for this restaurant",
+            });
+        }
+
+        return res.status(200).json({
+            status: "success",
+            data: menus,
+        });
+    } catch (error) {
+        console.error("Error fetching menus:", error.message);
+        return res.status(500).json({
+            status: "error",
+            message: "An error occurred while fetching the menus",
+        });
+    }
+};
+
+
 const restaurantController = {
     registerRestaurant,
-    getAllRestos
+    getAllRestos,
+    getAllMenus
 }
 export default restaurantController;

@@ -65,6 +65,7 @@ const getMenu = async (req, res) => {
         });
     }
 };
+
 const menuController ={
     registerMenu,
     getMenu

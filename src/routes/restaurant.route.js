@@ -50,4 +50,26 @@ restaurantRouter.post('/add', restaurantController.registerRestaurant)
  *                     type: string
  */
 restaurantRouter.get('/all', restaurantController.getAllRestos)
+/**
+ * @swagger
+ * /api/v1/restaurant/{restaurantId}/menus:
+ *   get:
+ *     summary: Get all menus for a restaurant
+ *     tags: [Menu]
+ *     parameters:
+ *       - in: path
+ *         name: restaurantId
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the restaurant to get menus for
+ *     responses:
+ *       200:
+ *         description: Menus retrieved successfully
+ *       404:
+ *         description: No menus found for the restaurant
+ *       500:
+ *         description: Internal server error
+ */
+restaurantRouter.get('/:restaurantId/menus', restaurantController.getAllMenus);
 export default restaurantRouter
