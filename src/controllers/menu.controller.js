@@ -40,7 +40,33 @@ const registerMenu = async (req, res) => {
         });
     }
 };
+
+const getMenu = async (req, res) => {
+    try {
+        const { id } = req.params;
+
+        const menu = await Menu.findById(id).populate('restaurant');
+        if (!menu) {
+            return res.status(404).json({
+                status: "error",
+                message: "Menu not found",
+            });
+        }
+
+        return res.status(200).json({
+            status: "success",
+            data: menu,
+        });
+    } catch (error) {
+        console.error("Error fetching menu:", error.message);
+        return res.status(500).json({
+            status: "error",
+            message: "An error occurred while fetching the menu",
+        });
+    }
+};
 const menuController ={
     registerMenu,
+    getMenu
 }
 export default menuController

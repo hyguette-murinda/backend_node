@@ -57,4 +57,27 @@ const menuRouter = expess.Router()
  */
 
 menuRouter.post('/add', menuController.registerMenu);
+
+/**
+ * @swagger
+ * /api/v1/menu/{id}:
+ *   get:
+ *     summary: Get a menu by ID
+ *     tags: [Menu]
+ *     parameters:
+ *       - in: path
+ *         name: id
+ *         required: true
+ *         schema:
+ *           type: string
+ *         description: ID of the menu to get
+ *     responses:
+ *       200:
+ *         description: Menu retrieved successfully
+ *       404:
+ *         description: Menu not found
+ *       500:
+ *         description: Internal server error
+ */
+menuRouter.get('/:id', menuController.getMenu);
 export default menuRouter
