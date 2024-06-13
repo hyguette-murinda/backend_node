@@ -27,7 +27,20 @@ const registerRestaurant = async (req, res) => {
 }
 }
 
+const getAllRestos = async (req, res) =>{
+    try{
+        const restos = await Restaurant.find()
+        return res.status(200).json({
+            status: "success",
+            data: restos
+        })
+    }catch(error){
+        console.log(error.message)
+    }
+}
+
 const restaurantController = {
-    registerRestaurant
+    registerRestaurant,
+    getAllRestos
 }
 export default restaurantController;

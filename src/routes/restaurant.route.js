@@ -27,4 +27,27 @@ const restaurantRouter = express.Router()
  */
 
 restaurantRouter.post('/add', restaurantController.registerRestaurant)
+
+/**
+ * @swagger
+ * /api/v1/restaurant/all:
+ *   get:
+ *     summary: Retrieves all restaurants
+ *     tags: [Laptop]
+ *     responses:
+ *       200:
+ *         description: A list of all restaurant
+ *         content:
+ *           application/json:
+ *             schema:
+ *               type: array
+ *               items:
+ *                 type: object
+ *                 properties:
+ *                   name:
+ *                     type: string
+ *                   address:
+ *                     type: string
+ */
+restaurantRouter.get('/all', restaurantController.getAllRestos)
 export default restaurantRouter
