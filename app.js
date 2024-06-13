@@ -10,6 +10,7 @@ import userRouter from './src/routes/user.route.js'
 import empLaptopRouter from './src/routes/empLaptop.route.js'
 import restaurantRouter from './src/routes/restaurant.route.js'
 import menuRouter from './src/routes/menu.route.js'
+import dishRouter from './src/routes/dish.route.js'
 import { ApiResponse } from './src/responses/api.response.js'
 import { serveSwagger, setupSwagger } from './swagger.config.js'
 
@@ -29,6 +30,7 @@ app.use("/api/v1/user", userRouter)
 app.use("/api/v1/laptop", empLaptopRouter)
 app.use("/api/v1/restaurant", restaurantRouter)
 app.use("/api/v1/menu", menuRouter)
+app.use("/api/v1/dish", dishRouter)
 // app.use("*", (req, res) => {
 //     res.status(404).json(new ApiResponse(false, "Route not found", null))
 // })

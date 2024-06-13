@@ -88,5 +88,19 @@ const UpdateProductSchema = Joi.object({
     sold: Joi.boolean(),
 })
 
+const CreateDishSchema = Joi.object({
+    name: Joi.string().required().min(2).max(50),
+    description: Joi.string().required().max(255),
+    price: Joi.number().required().min(0),
+    isAvailable: Joi.boolean(),
+    category: Joi.string().valid('food', 'drink').required(),
+    menuId: Joi.string().required(), 
+});
 
-export { CreateUserSchema, CreateMenuSchema, CreateRestaurantSchema, CreateEmpLaptopSchema ,UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema, DeleteUserSchema, CreateProductSchema, UpdateProductSchema }
+
+export { CreateUserSchema, CreateMenuSchema, 
+    CreateRestaurantSchema, CreateEmpLaptopSchema ,
+    UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema,
+     DeleteUserSchema, CreateProductSchema, UpdateProductSchema,
+    CreateDishSchema
+    }

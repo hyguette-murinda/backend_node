@@ -1,4 +1,5 @@
 import Menu from '../models/menu.js';
+import Dish from '../models/dish.js';
 import { CreateMenuSchema } from '../validations/app.validation.js';
 
 const registerMenu = async (req, res) => {
@@ -65,9 +66,36 @@ const getMenu = async (req, res) => {
         });
     }
 };
+const getDishesByMenuId = async (req, res) => {
+    try {
+        const { menuId } = req.params;
+
+        // Retrieve all dishes with the specified menuId
+        const dishes = await Dish.find({ menuId });
+
+        // Separate dishes into food and drinks categories
+        const foodDishes = dishes.filter(dish => dish.category === 'food');
+        const drinkDishes = dishes.filter(dish => dish.category === 'drink');
+
+        return res.status(200).json({
+            status: "success",
+            data: {
+                food: foodDishes,
+                drinks: drinkDishes
+            }
+        });
+    } catch (error) {
+        console.error("Error fetching dishes by menuId:", error.message);
+        return res.status(500).json({
+            status: "error",
+            message: "An error occurred while fetching dishes",
+        });
+    }
+};
 
 const menuController ={
     registerMenu,
-    getMenu
+    getMenu,
+    getDishesByMenuId
 }
 export default menuController
