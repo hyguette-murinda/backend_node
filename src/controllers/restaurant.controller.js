@@ -1,5 +1,5 @@
-import Restaurant from "../models/restaurant";
-import { CreateRestaurantSchema } from "../validations/app.validation";
+import Restaurant from "../models/restaurant.js";
+import { CreateRestaurantSchema } from "../validations/app.validation.js";
 
 const registerRestaurant = async (req, res) => {
   try {
