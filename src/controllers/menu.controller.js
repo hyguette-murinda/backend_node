@@ -1,5 +1,5 @@
 import Menu from '../models/menu.js';
-import { CreateMenuSchema } from '../validations/app.validation';
+import { CreateMenuSchema } from '../validations/app.validation.js';
 
 const registerMenu = async (req, res) => {
     try {

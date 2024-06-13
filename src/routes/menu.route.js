@@ -1,5 +1,5 @@
 import expess from 'express'
-import menuController from '../controllers/menu.controller';
+import menuController from '../controllers/menu.controller.js';
 const menuRouter = expess.Router()
 
 /**
@@ -57,3 +57,4 @@ const menuRouter = expess.Router()
  */
 
 menuRouter.post('/add', menuController.registerMenu);
+export default menuRouter
