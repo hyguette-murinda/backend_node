@@ -21,10 +21,11 @@ const CreateEmpLaptopSchema = Joi.object({
     model: Joi.string().required().min(4).max(50),
     serialnumber: Joi.string().required().min(4).max(50),
 
+})
 
-
-
-
+const CreateRestaurantSchema = Joi.object({
+    name: Joi.string().required().min(2).max(50),
+    address: Joi.string().required().min(4).max(50),
 })
 
 const UpdateUserSchema = Joi.object({
@@ -75,4 +76,4 @@ const UpdateProductSchema = Joi.object({
 })
 
 
-export { CreateUserSchema, CreateEmpLaptopSchema ,UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema, DeleteUserSchema, CreateProductSchema, UpdateProductSchema }
+export { CreateUserSchema, CreateRestaurantSchema, CreateEmpLaptopSchema ,UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema, DeleteUserSchema, CreateProductSchema, UpdateProductSchema }
