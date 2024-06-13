@@ -62,18 +62,9 @@ const CreateProductSchema = Joi.object({
     quantity: Joi.number(),
     sold: Joi.boolean(),
 })
-const MenuItemSchema = Joi.object({
-    name: Joi.string().required().min(2).max(100),
-    description: Joi.string().max(255),
-    price: Joi.number().required().min(0),
-    isAvailable: Joi.boolean().default(true),
-});
 const CreateMenuSchema = Joi.object({
     restaurant: Joi.string().required(),  
-    categories: Joi.object({
-        food: Joi.array().items(MenuItemSchema),
-        drinks: Joi.array().items(MenuItemSchema),
-    }).required(),
+
 });
 
 const UpdateProductSchema = Joi.object({

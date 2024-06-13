@@ -14,12 +14,11 @@ const registerMenu = async (req, res) => {
         }
 
         // Extract data from request body
-        const { restaurant, categories } = req.body;
+        const { restaurant } = req.body;
 
         // Create a new Menu instance
         const menu = new Menu({
             restaurant,
-            categories,
         });
 
         // Save the menu to the database
@@ -42,30 +41,30 @@ const registerMenu = async (req, res) => {
     }
 };
 
-const getMenu = async (req, res) => {
-    try {
-        const { id } = req.params;
+// const getMenu = async (req, res) => {
+//     try {
+//         const { id } = req.params;
 
-        const menu = await Menu.findById(id).populate('restaurant');
-        if (!menu) {
-            return res.status(404).json({
-                status: "error",
-                message: "Menu not found",
-            });
-        }
+//         const menu = await Menu.findById(id).populate('restaurant');
+//         if (!menu) {
+//             return res.status(404).json({
+//                 status: "error",
+//                 message: "Menu not found",
+//             });
+//         }
 
-        return res.status(200).json({
-            status: "success",
-            data: menu,
-        });
-    } catch (error) {
-        console.error("Error fetching menu:", error.message);
-        return res.status(500).json({
-            status: "error",
-            message: "An error occurred while fetching the menu",
-        });
-    }
-};
+//         return res.status(200).json({
+//             status: "success",
+//             data: menu,
+//         });
+//     } catch (error) {
+//         console.error("Error fetching menu:", error.message);
+//         return res.status(500).json({
+//             status: "error",
+//             message: "An error occurred while fetching the menu",
+//         });
+//     }
+// };
 const getDishesByMenuId = async (req, res) => {
     try {
         const { menuId } = req.params;
@@ -95,7 +94,7 @@ const getDishesByMenuId = async (req, res) => {
 
 const menuController ={
     registerMenu,
-    getMenu,
+    // getMenu,
     getDishesByMenuId
 }
 export default menuController

@@ -5,47 +5,7 @@ const menuSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: 'restaurant',
         required: true,
-    },
-    categories: {
-        food: [
-            {
-                name: {
-                    type: String,
-                    required: true,
-                },
-                description: {
-                    type: String,
-                },
-                price: {
-                    type: Number,
-                    required: true,
-                },
-                isAvailable: {
-                    type: Boolean,
-                    default: true,
-                },
-            },
-        ],
-        drinks: [
-            {
-                name: {
-                    type: String,
-                    required: true,
-                },
-                description: {
-                    type: String,
-                },
-                price: {
-                    type: Number,
-                    required: true,
-                },
-                isAvailable: {
-                    type: Boolean,
-                    default: true,
-                },
-            },
-        ],
-    },
+    }
 });
 
 const Menu = mongoose.model('menu', menuSchema);
