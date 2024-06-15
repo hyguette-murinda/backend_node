@@ -23,10 +23,6 @@ const CreateEmpLaptopSchema = Joi.object({
 
 })
 
-const CreateRestaurantSchema = Joi.object({
-    name: Joi.string().required().min(2).max(50),
-    address: Joi.string().required().min(4).max(50),
-})
 
 const UpdateUserSchema = Joi.object({
     fullname: Joi.string().required().min(4).max(50),
@@ -62,10 +58,7 @@ const CreateProductSchema = Joi.object({
     quantity: Joi.number(),
     sold: Joi.boolean(),
 })
-const CreateMenuSchema = Joi.object({
-    restaurant: Joi.string().required(),  
 
-});
 
 const UpdateProductSchema = Joi.object({
     supplier: Joi.string().required(),
@@ -79,19 +72,10 @@ const UpdateProductSchema = Joi.object({
     sold: Joi.boolean(),
 })
 
-const CreateDishSchema = Joi.object({
-    name: Joi.string().required().min(2).max(50),
-    description: Joi.string().required().max(255),
-    price: Joi.number().required().min(0),
-    isAvailable: Joi.boolean(),
-    category: Joi.string().valid('food', 'drink').required(),
-    menuId: Joi.string().required(), 
-});
 
 
-export { CreateUserSchema, CreateMenuSchema, 
-    CreateRestaurantSchema, CreateEmpLaptopSchema ,
+
+export { CreateUserSchema, CreateEmpLaptopSchema ,
     UpdateUserSchema, LoginUserSchema, UpdatePasswordSchema,
-     DeleteUserSchema, CreateProductSchema, UpdateProductSchema,
-    CreateDishSchema
+     DeleteUserSchema, CreateProductSchema, UpdateProductSchema
     }
