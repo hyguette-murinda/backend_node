@@ -77,10 +77,6 @@ For deployment then try any online hosting service such as [heroku](https://hero
 - [Express](https://expressjs.com/) - Server Framework
 - [NodeJs](https://nodejs.org/en/) - Server Environment
 
-## ✍️ Authors <a name = "authors"></a>
-
-- [@mugishap](https://github.com/mugishap) - Idea & Initial work
-
 See also the list of [contributors](https://github.com/mugishap/nodejs-ultimate-template/contributors) who participated in this project.
 
 ## 🎉 Acknowledgements <a name = "acknowledgement"></a>
