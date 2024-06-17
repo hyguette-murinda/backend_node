@@ -6,7 +6,7 @@ const authRouter = express.Router()
 
 /**
  * @swagger
- * /api/v1/auth/login:
+ * /auth/login:
  *   post:
  *     summary: Logs in a user
  *     tags: [Auth]
@@ -17,7 +17,7 @@ const authRouter = express.Router()
  *           schema:
  *             type: object
  *             properties:
- *               email:
+ *               username:
  *                 type: string
  *               password:
  *                 type: string
@@ -31,7 +31,7 @@ authRouter.post('/login', authController.login)
 
 /**
  * @swagger
- * /api/v1/auth/initiate-password-reset:
+ * /auth/initiate-password-reset:
  *   post:
  *     summary: Initiates password reset
  *     tags: [Auth]

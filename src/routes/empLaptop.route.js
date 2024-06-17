@@ -1,5 +1,6 @@
 import express from 'express'
 import empLaptopController from '../controllers/empLaptop.controller.js'
+import { isLoggedIn } from '../middlewares/auth.middleware.js'
 
 const empLaptopRouter = express.Router()
 
@@ -42,7 +43,7 @@ const empLaptopRouter = express.Router()
  *       400:
  *         description: Bad request
  */
-empLaptopRouter.post('/new', empLaptopController.registerEmpLaptop)
+empLaptopRouter.post('/new', isLoggedIn ,empLaptopController.registerEmpLaptop)
 
 /**
  * @swagger
